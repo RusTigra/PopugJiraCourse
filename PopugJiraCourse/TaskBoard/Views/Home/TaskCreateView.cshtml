@@ -1,0 +1,7 @@
+﻿@model TaskBoard.Models.Input.PopugTaskCreateView
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    @Html.TextBoxFor(m => m.Content, htmlAttributes: new { style = "width:90%" })
+    <input type="submit" value="Создать" />
+}

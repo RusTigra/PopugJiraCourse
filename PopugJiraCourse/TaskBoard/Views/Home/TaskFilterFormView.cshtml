@@ -1,0 +1,23 @@
+﻿@model PopugTaskFilterView
+@using TaskStatus = TaskBoard.Infrastructure.TaskStatus
+@using TaskBoard.Models.Input
+
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Get,
+   null))
+{
+    <div class="item">
+        <label>@Html.LabelFor(m => m.Id)</label>
+        @Html.EditorFor(m => m.Id)
+    </div>
+    <div class="item">
+        <label>@Html.LabelFor(m => m.Content)</label>
+        @Html.TextBoxFor(m => m.Content)
+    </div>
+    <div class="item">
+        <label>@Html.LabelFor(m => m.Status)</label>
+        @Html.DropDownListFor(m => m.Status, new SelectList(
+            new List<TaskStatus?> { null, TaskStatus.New, TaskStatus.Taken, TaskStatus.Closed }))
+    </div>
+    <input type="submit" value="Применить" />
+}
